@@ -43,8 +43,8 @@ public class AlunoController {
 		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
 	}
 	@PostMapping
-	public ResponseEntity<Aluno> put (@RequestBody Aluno postagem){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
+	public ResponseEntity<Aluno> put (@RequestBody Aluno nome){
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(nome));
 		
 	}
 	

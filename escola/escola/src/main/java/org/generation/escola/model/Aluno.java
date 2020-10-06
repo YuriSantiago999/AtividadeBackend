@@ -11,7 +11,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
-
 import com.sun.istack.NotNull;
 
 @Entity
@@ -24,53 +23,65 @@ public class Aluno {
 	private long id;
 	
 	@NotNull
-	@Size(min = 5, max = 100)
+	@Size(min = 1, max = 100)
 	private String nome;
 	
-	@NotNull
-	@Size(min = 1, max = 100)
+	
+	
 	private long turma;	
 
 	@Temporal(TemporalType.TIMESTAMP)
     private Date data = new java.sql.Date(System.currentTimeMillis());
 	
 	private boolean matriculado;
-	
-	
-	public boolean isMatriculado() {
-		return matriculado;
-	}
-	public void setMatriculado(boolean matriculado) {
-		this.matriculado = matriculado;
-	}
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public long getTexto() {
+
+	public long getTurma() {
 		return turma;
 	}
-	public void setTexto(String nome) {
-		this.nome = nome;
+
+	public void setTurma(long turma) {
+		this.turma = turma;
 	}
+
 	public Date getData() {
 		return data;
 	}
+
 	public void setData(Date data) {
 		this.data = data;
+	}
+
+	public boolean isMatriculado() {
+		return matriculado;
+	}
+
+	public void setMatriculado(boolean matriculado) {
+		this.matriculado = matriculado;
 	}
 	
 	
 	
 }
+	
+	
+	
+
 
 	
 	
