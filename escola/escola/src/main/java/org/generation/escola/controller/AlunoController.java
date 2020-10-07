@@ -1,9 +1,6 @@
 package org.generation.escola.controller;
 
 import java.util.List;
-
-import org.generation.blogPessoal.model.Postagem;
-import org.generation.blogPessoal.repository.PostagemRepository;
 import org.generation.escola.model.Aluno;
 import org.generation.escola.repository.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
