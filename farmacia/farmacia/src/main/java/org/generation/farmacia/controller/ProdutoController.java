@@ -1,9 +1,8 @@
 package org.generation.farmacia.controller;
 
 
+//Camada atualizada
 import java.util.List;
-
-
 import org.generation.farmacia.model.Produto;
 import org.generation.farmacia.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +30,11 @@ public class ProdutoController {
 	public ResponseEntity<List<Produto>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
+	@GetMapping("/{id}")
+	public ResponseEntity<Produto> GetbyId(@PathVariable long id){
+		return repository.findById(id)
+				.map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
+	}
 	
 	@GetMapping("/nome/{nome}")
 	public ResponseEntity<List<Produto>> getByName(@PathVariable String nome){
@@ -38,19 +42,19 @@ public class ProdutoController {
 	}
 	
 	@PostMapping
-	public  ResponseEntity < Produto >  post ( @RequestBody  Produto  produto ) {
+	public  ResponseEntity < Produto >  put ( @RequestBody  Produto nome ) {
 		return  ResponseEntity . status ( HttpStatus . CREATED )
-				.body (repository . save (produto));
+				.body (repository . save (nome));
 	}
 	
 	@PutMapping
-	public  ResponseEntity < Produto >  put ( @RequestBody  Produto  produto ) {
+	public  ResponseEntity < Produto >  post ( @RequestBody  Produto  produto ) {
 		return  ResponseEntity . ok (repository . save (produto));				
 	}
 	
-	@DeleteMapping ( " / {id} " )
-	public  void  delete ( @PathVariable  long  id ) {
-		repository . deleteById (id);
+	@DeleteMapping ("/{id}")
+	public void delete ( @PathVariable long id ) {
+		repository.deleteById (id);
 	}
 	
 	

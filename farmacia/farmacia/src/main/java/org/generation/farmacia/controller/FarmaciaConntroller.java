@@ -29,7 +29,7 @@ public class FarmaciaConntroller {
 		return ResponseEntity.ok(repository.findAll());
 		
 	}
-	@GetMapping("/{id}")
+	@GetMapping("/id")
 	public ResponseEntity<Categoria> GetbyId(@PathVariable long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
